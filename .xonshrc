@@ -30,7 +30,20 @@ aliases["la"] = "ls -la"
 # auto ls
 @events.on_chdir
 def auto_ls(olddir, newdir, **kw):
-  ls
+    ls
+
+@events.on_transform_command
+def command_rebuild(cmd):
+    # 無限ループにならないように組めばこれでいけるのか
+    cmd = cmd.replace("\n", "")
+    # github auto clone
+    res = re.fullmatch(r'^(https://|git@)github\.com(/|:)(.*)', cmd)
+    if res is not None:
+        giturl = 'git@github.com:' + res.groups()[2]
+        print(giturl)
+        return "git clone " + giturl
+    return cmd
+
 
 # 履歴をpecoに流す
 # https://qiita.com/riktor/items/4a90b4e125cd091a9d07
@@ -146,8 +159,8 @@ for k,v in lazy_module_dict.items():
     exec(t)
 
 # プロンプトの表記
-$PL_PROMPT  = 'cwd>lf>user>rtns'
-$PL_RPROMPT = 'branch>time'
+$PL_PROMPT  = 'lf>cwd>branch>lf>user>rtns'
+$PL_RPROMPT = 'time'
 $PL_TOOLBAR = '!'
 $PL_COLORS = {
     "cwd": ("BLACK", "#ffff00")
