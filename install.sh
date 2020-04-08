@@ -15,6 +15,7 @@ DIR_PATH=$(cd $(dirname $0); pwd)
 # brew 関連ソフト install
 brew bundle --file ./Brewfile
 # nodebrew Path
+which nodebrew && nodebrew setup
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 source ~/.bash_profile
 
