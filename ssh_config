@@ -1,0 +1,10 @@
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+
+# template
+# Host sun-yryr
+  # HostName 192.168.0.1
+  # Port hogehoge
+  # User <UserName>
+  # IdentityFile <秘密鍵>
