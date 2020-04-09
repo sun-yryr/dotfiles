@@ -100,6 +100,8 @@ cd nerd-fonts; ./install.sh RobotoMono && cd ../; rm -rf nerd-fonts
 
 # シンボリックリンクを貼る
 ln -sf "$DIR_PATH/.xonshrc" $HOME
+mkdir -p "$HOME/.ssh"
+ln -sf "$DIR_PATH/ssh_config" "$HOME/.ssh/config"
 
 # git
 git config --global user.email "taittide@gmail.com"
