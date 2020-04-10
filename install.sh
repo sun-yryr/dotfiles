@@ -16,8 +16,10 @@ DIR_PATH=$(cd $(dirname $0); pwd)
 brew bundle --file ./Brewfile
 # nodebrew Path
 which nodebrew && nodebrew setup
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-source ~/.bash_profile
+echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> ~/.zprofile
+# cat ~/.bash_profile >> ~/.zprofile
+# source ~/.bash_profile
+source ~/.zprofile
 
 # mac preference
 # trackpad
@@ -57,7 +59,7 @@ defaults write com.apple.dock tilesize -int 38
 defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock largesize -int 65
 # Dock の再起動
-# killall Dock
+killall Dock
 
 # Finder
 # Automatically open a new Finder window when a volume is mounted
@@ -82,10 +84,12 @@ defaults write com.apple.menuextra.clock 'DateFormat' -string 'M\\U6708d\\U65e5(
 # TODO: LTSをインストールできるようにする
 pyenv install 3.8.2
 pyenv global 3.8.2
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
-echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
-source ~/.bash_profile
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zprofile
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zprofile
+echo 'eval "$(pyenv init -)"' >> ~/.zprofile
+# cat ~/.bash_profile >> ~/.zprofile
+# source ~/.bash_profile
+source ~/.zprofile
 
 
 # xonsh 環境構築
