@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if [ "$(uname)" == 'Darwin' ]; then
+    OS='Mac'
+elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+    OS='Linux'
+else
+    echo "Your plat
+    form ($(uname -a)) is not supported."
+    exit 1
+fi
+
+echo "command install"
+chmod +x ./bin/linux.sh
+./bin/linux.sh
+
+# 全体設定
+# TODO: LTSをインストールできるようにする
+pyenv install 3.8.2
+pyenv global 3.8.2
+
+# xonsh 環境構築
+# 以下は pip が入っていることが前提
+echo "xonsh..."
+# prompt-toolkit はバグがあるので sun-yryrからインストールする
+pip install xonsh Pygments xontrib-z git+https://github.com/sun-yryr/python-prompt-toolkit.git git+https://github.com/sun-yryr/xontrib-powerline2.git
+
+# フォントインストール
+git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+cd nerd-fonts; ./install.sh RobotoMono && cd ../; rm -rf nerd-fonts
+
+# シンボリックリンクを貼る
+ln -sf "$DIR_PATH/.xonshrc" $HOME
+mkdir -p "$HOME/.ssh"
+cp "$DIR_PATH/ssh_config" "$HOME/.ssh/config"
+
+# git
+git config --global user.email "taittide@gmail.com"
+git config --global user.name "sun-yryr"

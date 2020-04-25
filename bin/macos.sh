@@ -1,5 +1,6 @@
-# macOS 用環境構築スクリプト
+#!/bin/bash
 
+# macos で動くやつ（コマンドライン）
 # やること
 # - brew 各位のインストール
 # - python 環境構築
@@ -7,7 +8,8 @@
 # - powerline 用フォントのインストール
 # - シンボリックリンクを貼る
 
-DIR_PATH=$(cd $(dirname $0); pwd)
+# dotfilesのパス
+DOTFILES_PATH=$(cd $(dirname $0); pwd)
 
 # brew install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -16,10 +18,25 @@ DIR_PATH=$(cd $(dirname $0); pwd)
 brew bundle --file ./Brewfile
 # nodebrew Path
 which nodebrew && nodebrew setup
+which nodebrew && nodebrew setup
 echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> ~/.zprofile
-# cat ~/.bash_profile >> ~/.zprofile
-# source ~/.bash_profile
 source ~/.zprofile
+
+# Python 環境構築
+# TODO: LTSをインストールできるようにする
+pyenv install 3.8.2
+pyenv global 3.8.2
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zprofile
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zprofile
+echo 'eval "$(pyenv init -)"' >> ~/.zprofile
+source ~/.zprofile
+
+# 以下は pip が入っていることが前提
+pip install gnureadline
+# zshから起動する
+echo "alias x='xonsh'" >> ~/.zprofile
+echo "x" >> ~/.zprofile
+
 
 # mac preference
 # trackpad
@@ -79,34 +96,3 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 # Date options: Show the day of the week: on （日付表示設定、曜日を表示）
 defaults write com.apple.menuextra.clock 'DateFormat' -string 'M\\U6708d\\U65e5(EEE)  H:mm:ss'
-
-# Python 環境構築
-# TODO: LTSをインストールできるようにする
-pyenv install 3.8.2
-pyenv global 3.8.2
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zprofile
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zprofile
-echo 'eval "$(pyenv init -)"' >> ~/.zprofile
-# cat ~/.bash_profile >> ~/.zprofile
-# source ~/.bash_profile
-source ~/.zprofile
-
-
-# xonsh 環境構築
-# 以下は pip が入っていることが前提
-echo "xonsh..."
-# prompt-toolkit はバグがあるので sun-yryrからインストールする
-pip install gnureadline xonsh Pygments xontrib-z git+https://github.com/sun-yryr/python-prompt-toolkit.git git+https://github.com/sun-yryr/xontrib-powerline2.git
-
-# フォントインストール
-git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
-cd nerd-fonts; ./install.sh RobotoMono && cd ../; rm -rf nerd-fonts
-
-# シンボリックリンクを貼る
-ln -sf "$DIR_PATH/.xonshrc" $HOME
-mkdir -p "$HOME/.ssh"
-cp "$DIR_PATH/ssh_config" "$HOME/.ssh/config"
-
-# git
-git config --global user.email "taittide@gmail.com"
-git config --global user.name "sun-yryr"
