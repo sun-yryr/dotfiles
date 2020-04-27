@@ -2,8 +2,12 @@
 
 if [ "$(uname)" == 'Darwin' ]; then
     OS='Mac'
+    chmod +x ./bin/macos.sh
+    ./bin/macos.sh
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     OS='Linux'
+    chmod +x ./bin/linux.sh
+    ./bin/linux.sh
 else
     echo "Your plat
     form ($(uname -a)) is not supported."
@@ -11,8 +15,6 @@ else
 fi
 
 echo "command install"
-chmod +x ./bin/linux.sh
-./bin/linux.sh
 
 # 全体設定
 # TODO: LTSをインストールできるようにする
