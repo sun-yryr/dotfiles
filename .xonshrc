@@ -25,7 +25,23 @@ $UPDATE_COMPLETIONS_ON_KEYPRESS = True
 $LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30"
 
 aliases["la"] = "ls -la"
+aliases["tree"] = "tree -N -I node_modules"
 
+def gitswitch_peco():
+    branch = $(git branch -a | grep "*").replace(' ', '').replace('\n', '').replace('*', '')
+    tmp = $(git branch -a --sort=-authordate | grep -v -e '->' -e '*').split('\n')
+    branches = set()
+    for s in tmp:
+        m = re.match(r'^\s*(remotes/origin/)?(\S+)\s*', s)
+        if m is None:
+            continue
+        branches.add("{} -> {}".format(branch, m[2]))
+    branches = list(branches)
+    selected = $(echo @('\n'.join(branches)) | peco).rstrip('\n')
+    selected = selected.replace("{} -> ".format(branch), "")
+    git switch @(selected)
+
+aliases["gs"] = gitswitch_peco
 
 # auto ls
 @events.on_chdir
