@@ -40,7 +40,6 @@ def gitswitch_peco():
     selected = $(echo @('\n'.join(branches)) | peco).rstrip('\n')
     selected = selected.replace("{} -> ".format(branch), "")
     git switch @(selected)
-
 aliases["gs"] = gitswitch_peco
 
 # auto ls
@@ -127,7 +126,12 @@ def custom_keybindings(bindings, **kw):
         hosts = '\n'.join([x for x in get_ssh().split('\n') if x!='*' and 'HostKey' not in x])
         selected = $(echo @(hosts) | peco)
         if selected:
-            event.current_buffer.insert_text('ssh ' + selected.strip())
+            print('ssh {}'.format(selected.strip("\n")))
+            ssh @(selected.strip("\n"))
+
+    @bindings.add('c-q')
+    def _exit(event):
+        event.app.exit(None)
 
 
 # 直近のxonshjobころすマン
@@ -175,11 +179,5 @@ for k,v in lazy_module_dict.items():
     exec(t)
 
 # プロンプトの表記
-$PL_PROMPT  = 'lf>cwd>branch>lf>user>rtns'
-$PL_RPROMPT = 'time'
-$PL_TOOLBAR = '!'
-$PL_COLORS = {
-    "cwd": ("BLACK", "#ffff00")
-}
+$PROMPT = '\n{#6ed4fd}{user} {BOLD_YELLOW}[ {#3d55c8}{short_cwd} {BOLD_YELLOW}] {branch_color}{curr_branch: {}}{NO_COLOR}\n🎐 {#6ed4fd}>>{NO_COLOR} '
 xontrib load z
-xontrib load powerline2
