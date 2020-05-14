@@ -5,5 +5,7 @@
     "workbench.colorTheme": "Yule Light (rainglow)",
     "git.autofetch": true,
     "git.confirmSync": false,
-    "terminal.integrated.shell.osx": "/bin/zsh"
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "explorer.confirmDragAndDrop": false,
+    "autoDocstring.docstringFormat": "google"
 }
