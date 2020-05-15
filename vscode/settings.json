@@ -1,5 +1,5 @@
 {
-    "codic.ACCESS_TOKEN": "u9rQ0Z5ZZRh1e7WdsBufUv3M955THKGF51",
+    "codic.ACCESS_TOKEN": "",
     "codic.case": "camelCase",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.colorTheme": "Yule Light (rainglow)",
@@ -7,5 +7,6 @@
     "git.confirmSync": false,
     "terminal.integrated.shell.osx": "/bin/zsh",
     "explorer.confirmDragAndDrop": false,
-    "autoDocstring.docstringFormat": "google"
+    "autoDocstring.docstringFormat": "google",
+    "diffEditor.ignoreTrimWhitespace": false
 }
