@@ -180,4 +180,4 @@ for k,v in lazy_module_dict.items():
 
 # プロンプトの表記
 $PROMPT = '\n{#6ed4fd}{user} {BOLD_YELLOW}[ {#3d55c8}{cwd} {BOLD_YELLOW}] {branch_color}{curr_branch: {}}{NO_COLOR}\n🎐 {#6ed4fd}>>{NO_COLOR} '
-xontrib load z
+xontrib enhancd
