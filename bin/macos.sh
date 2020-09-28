@@ -19,7 +19,16 @@ brew bundle --file ./Brewfile
 # nodebrew Path
 which nodebrew && nodebrew setup
 which nodebrew && nodebrew setup
-echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> ~/.zprofile
+echo 'export PATH="$HOME/.nodebrew/current/bin:$PATH"' >> ~/.zprofile
+echo 'export PATH="/usr/local/opt/bzip2/bin:$PATH"' >> ~/.zprofile
+source ~/.zprofile
+
+# PHP 環境構築
+git clone git://github.com/phpenv/phpenv.git ~/.phpenv
+echo 'export PATH="$HOME/.phpenv/bin:$PATH"' >> ~/.zprofile
+echo 'eval "$(phpenv init -)"' >> ~/.zprofile
+git clone https://github.com/php-build/php-build $(phpenv root)/plugins/php-build
+phpenv install 7.4.9
 source ~/.zprofile
 
 # Python 環境構築

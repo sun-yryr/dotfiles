@@ -28,8 +28,8 @@ echo "xonsh..."
 pip install xonsh Pygments xontrib-z git+https://github.com/sun-yryr/python-prompt-toolkit.git git+https://github.com/sun-yryr/xontrib-powerline2.git
 
 # フォントインストール
-git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
-cd nerd-fonts; ./install.sh RobotoMono && cd ../; rm -rf nerd-fonts
+# git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+# cd nerd-fonts; ./install.sh RobotoMono && cd ../; rm -rf nerd-fonts
 
 # シンボリックリンク
 chmod +x ./bin/symboliclink.sh
