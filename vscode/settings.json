@@ -2,13 +2,71 @@
     "codic.ACCESS_TOKEN": "",
     "codic.case": "camelCase",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Yule Light (rainglow)",
+    "workbench.colorTheme": "Dark+ Material",
     "git.autofetch": true,
     "git.confirmSync": false,
-    "terminal.integrated.shell.osx": "/bin/zsh",
+    "terminal.integrated.shell.osx": "/Users/t_minagawa/.pyenv/shims/xonsh",
     "explorer.confirmDragAndDrop": false,
     "autoDocstring.docstringFormat": "google",
     "diffEditor.ignoreTrimWhitespace": false,
-    "window.zoomLevel": 0,
-    "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7YXdzNFwiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W10sXCJmb3JtYXRXaWR0aFwiOjAsXCJjcmVhdGVUYXJnZXRcIjpmYWxzZSxcInBhZ2VGb3JtYXRcIjp7XCJ4XCI6MCxcInlcIjowLFwid2lkdGhcIjo4MjcsXCJoZWlnaHRcIjoxMTY5fSxcInNlYXJjaFwiOnRydWUsXCJzaG93U3RhcnRTY3JlZW5cIjp0cnVlLFwiZ3JpZENvbG9yXCI6XCIjZDBkMGQwXCIsXCJkYXJrR3JpZENvbG9yXCI6XCIjNmU2ZTZlXCIsXCJhdXRvc2F2ZVwiOnRydWUsXCJyZXNpemVJbWFnZXNcIjpudWxsLFwib3BlbkNvdW50ZXJcIjowLFwidmVyc2lvblwiOjE4LFwidW5pdFwiOjEsXCJpc1J1bGVyT25cIjpmYWxzZX0ifQ=="
+    "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7YXJyb3dzMjtpb3M7YXdzNFwiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W10sXCJmb3JtYXRXaWR0aFwiOjAsXCJjcmVhdGVUYXJnZXRcIjpmYWxzZSxcInBhZ2VGb3JtYXRcIjp7XCJ4XCI6MCxcInlcIjowLFwid2lkdGhcIjoxMTY5LFwiaGVpZ2h0XCI6ODI3fSxcInNlYXJjaFwiOnRydWUsXCJzaG93U3RhcnRTY3JlZW5cIjp0cnVlLFwiZ3JpZENvbG9yXCI6XCIjZDBkMGQwXCIsXCJkYXJrR3JpZENvbG9yXCI6XCIjNmU2ZTZlXCIsXCJhdXRvc2F2ZVwiOnRydWUsXCJyZXNpemVJbWFnZXNcIjpudWxsLFwib3BlbkNvdW50ZXJcIjowLFwidmVyc2lvblwiOjE4LFwidW5pdFwiOjEsXCJpc1J1bGVyT25cIjpmYWxzZSxcInVpXCI6XCJcIn0ifQ==",
+    "terminal.integrated.scrollback": 500,
+    "bracketPairColorizer.activeScopeCSS": [
+        "borderStyle : solid",
+        "borderWidth : 1px",
+        "borderColor : {color}; opacity: 0.5"
+    ],
+    "swiftlint.configSearchPaths": [
+        ".swiftlint.yml",
+        "swiftlint.yaml"
+    ],
+    "sde.languageServerMode": "sourcekit-lsp",
+    "sourcekit-lsp.trace.server": "messages",
+    "terraform-ls.rootModules": [
+        "terraform/"
+    ],
+    "workbench.startupEditor": "newUntitledFile",
+    "csv-preview.separator": "\\t",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "php.validate.enable": false,
+    "php.suggest.basic": false,
+    "php.executablePath": "/Users/t_minagawa/.phpenv/shims/php",
+    "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "php-cs-fixer.lastDownload": 1621184038291,
+    "explorer.confirmDelete": false,
+    "[php]": {
+        "editor.defaultFormatter": "junstyle.php-cs-fixer"
+    },
+    "sourcekit-lsp.serverPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+    "todo-tree.tree.showScanModeButton": false,
+    "sde.buildOnSave": false,
+    "gitlens.defaultDateFormat": "YYYY-MM-DD hh:mm",
+    "gitlens.defaultTimeFormat": "hh:mm",
+    "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
+    "cSpell.userWords": [
+        "minagawa",
+        "yryr"
+    ],
+    "cSpell.ignorePaths": [
+        "**/package-lock.json",
+        "**/node_modules/**",
+        "**/vscode-extension/**",
+        "**/.git/objects/**",
+        ".vscode",
+        ".vscode-insiders",
+        "**/vendor/**"
+    ],
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)"
 }
