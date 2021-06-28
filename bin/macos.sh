@@ -12,7 +12,7 @@
 DOTFILES_PATH=$(cd $(dirname $0); pwd)
 
 # brew install
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # brew 関連ソフト install
 brew bundle --file ./Brewfile
