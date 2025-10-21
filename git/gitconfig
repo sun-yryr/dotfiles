@@ -1,0 +1,18 @@
+[core]
+    ignorecase = false
+
+[filter "lfs"]
+    clean = "git-lfs clean -- %f"
+    smudge = "git-lfs smudge -- %f"
+    process = "git-lfs filter-process"
+    required = true
+
+[pull]
+    rebase = true
+    autostash = true
+
+[init]
+    defaultBranch = main
+
+[alias]
+	ddd = !git branch --format \"%(refname:short) %(upstream:track)\" | grep \"\\[gone\\]\" | sed -e \"s/ \\[gone\\]$//g\" | xargs -IXXX git branch -D XXX

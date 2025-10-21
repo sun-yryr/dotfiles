@@ -1,0 +1,1 @@
+short:-G	long:--ghr	desc:Show Git Repository path	func:ghr list --path	condition:which ghr

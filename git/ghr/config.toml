@@ -1,0 +1,21 @@
+# ghrの設定ファイル
+
+[defaults]
+owner = "sun-yryr"
+
+[profiles.default]
+user.name = "sun-yryr"
+user.email = "me@sun-yryr.com"
+# user.signingkey = ""
+# commit.gpgsign = true
+
+# リポジトリオーナーでプロファイルを変える
+# [profiles.company]
+# user.name = "sun-yryr (Company)"
+# user.email = "foo@example.com"
+# [[rules]]
+# profile.name = "company"
+# owner = "example"
+
+[[rules]]
+profile.name = "default"
