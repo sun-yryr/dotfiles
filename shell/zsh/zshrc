@@ -4,14 +4,8 @@
 export DOTFILES_DIR="${DOTFILES_DIR:-$HOME/Documents/dotfiles}"
 
 # ------------------------------------------------------------
-# 基本設定の読み込み
-# ------------------------------------------------------------
-for config_file in "$DOTFILES_DIR/shell/zsh/base"/*.zsh; do
-  source "$config_file"
-done
-
-# ------------------------------------------------------------
 # OSごとの設定の読み込み
+# 特にhomebrewなど、先にパスを設定しておかないときと、基本設定の解決ができない場合が多い
 # ------------------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # macOS
@@ -26,6 +20,13 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     fi
   fi
 fi
+
+# ------------------------------------------------------------
+# 基本設定の読み込み
+# ------------------------------------------------------------
+for config_file in "$DOTFILES_DIR/shell/zsh/base"/*.zsh; do
+  source "$config_file"
+done
 
 # ------------------------------------------------------------
 # ホスト名ベースの設定の読み込み
@@ -43,25 +44,14 @@ if [ -f "$HOME/.zshrc.local" ]; then
 fi
 
 # ------------------------------------------------------------
-# 基本設定（OSベースの環境変数に依存している）
-# TODO: いい感じにしたい
+# その他
 # ------------------------------------------------------------
-source $ZPLUG_HOME/init.zsh
-zplug "b4b4r07/enhancd", use:init.sh
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-zplug load
-
 export GPG_TTY=$(tty)
 
-# --------
+# ------------------------------------------------------------
 # mise
-# --------
-eval "$(/home/sun-yryr/.local/bin/mise activate zsh)"
+# ------------------------------------------------------------
+eval "$($HOME/.local/bin/mise activate zsh)"
 
 # ------------------------------------------------------------
 # Starshipの起動（必ず最後に実行する）

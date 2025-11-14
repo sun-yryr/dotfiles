@@ -48,6 +48,11 @@ if ! command -v zplug &> /dev/null; then
     echo "zplugをインストールします..."
     curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 fi
+# miseがインストールされているか確認
+if ! command -v mise &> /dev/null; then
+    echo "miseをインストールします..."
+    curl https://mise.run | sh
+fi
 # uvがインストールされているか確認
 if ! command -v uv &> /dev/null; then
     echo "uvをインストールします..."

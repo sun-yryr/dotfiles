@@ -1,6 +1,8 @@
 # macOS固有のパス設定
 export PATH="/opt/homebrew/bin:$PATH"
-export ZPLUG_HOME=$(brew --prefix)/opt/zplug
+
+# swiftly
+. ~/.swiftly/env.sh
 
 # macOS固有のエイリアス
 alias finder='open .'
