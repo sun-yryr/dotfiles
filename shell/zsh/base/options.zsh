@@ -11,11 +11,16 @@ setopt autocd
 setopt extendedglob
 unsetopt beep
 bindkey -e
-
-# 補完システムを有効にする
-autoload -Uz compinit
-compinit
+# 同じコマンドを履歴に追加しない
+setopt hist_ignore_all_dups
 
 # プロンプトの設定
 autoload -Uz promptinit
 promptinit
+
+# bashの補完を使ってみる
+autoload -Uz bashcompinit
+bashcompinit
+
+source <(ghr shell bash --completion)
+complete -C "$(which aws_completer)" aws
