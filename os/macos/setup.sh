@@ -27,13 +27,14 @@ else
 fi
 
 # 必要なパッケージをインストール
-step_start "必要なパッケージのインストール"
-info "fzf, ghrをインストールします..."
-if run_command "brew install fzf ghr" "パッケージをインストール中..."; then
-    step_success
-else
-    step_error "パッケージのインストールに失敗しました。"
-fi
+# brew bundleに移行するので後で消す
+# step_start "必要なパッケージのインストール"
+# info "fzf, ghrをインストールします..."
+# if run_command "brew install fzf ghr" "パッケージをインストール中..."; then
+#     step_success
+# else
+#     step_error "パッケージのインストールに失敗しました。"
+# fi
 
 # swiftly
 step_start "swiftlyのインストール確認"
