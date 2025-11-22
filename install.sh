@@ -235,6 +235,9 @@ else
     step_error "tmux設定ファイルのシンボリックリンク作成に失敗しました。"
 fi
 
+# terraformの共通provider置き場も作っておく
+mkdir -p ~/.terraform.d/plugin-cache
+
 # 総実行時間を計算
 END_TIME=$(date +%s)
 TOTAL_DURATION=$((END_TIME - START_TIME))

@@ -16,3 +16,6 @@
 
 [alias]
 	ddd = !git branch --format \"%(refname:short) %(upstream:track)\" | grep \"\\[gone\\]\" | sed -e \"s/ \\[gone\\]$//g\" | xargs -IXXX git branch -D XXX
+[user]
+	name = sun-yryr
+	email = me@sun-yryr.com
