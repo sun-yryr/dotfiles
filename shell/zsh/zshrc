@@ -5,33 +5,38 @@
 # ------------------------------------------------------------
 START_TIME=$(date +%s%N)
 
-# dotfilesディレクトリのパスを設定
+# dotfilesディレクトリのパスを設定（zprofileで設定済みだが、念のため）
 export DOTFILES_DIR="${DOTFILES_DIR:-$HOME/Documents/dotfiles}"
 
 # ------------------------------------------------------------
-# OSごとの設定の読み込み
-# 特にhomebrewなど、先にパスを設定しておかないときと、基本設定の解決ができない場合が多い
+# rc.d配下の設定を数字順に読み込み
+# ------------------------------------------------------------
+for config_file in "$DOTFILES_DIR/shell/zsh/rc.d"/*.zsh; do
+  if [ -f "$config_file" ]; then
+    source "$config_file"
+  fi
+done
+
+# ------------------------------------------------------------
+# OSごとのエイリアス設定の読み込み
 # ------------------------------------------------------------
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # macOS
-  source "$DOTFILES_DIR/shell/zsh/os/macos.zsh"
+  if [ -f "$DOTFILES_DIR/shell/zsh/rc.d/os/10_macos.zsh" ]; then
+    source "$DOTFILES_DIR/shell/zsh/rc.d/os/10_macos.zsh"
+  fi
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
   # Linux
   if [ -f /etc/os-release ]; then
     . /etc/os-release
     if [[ "$ID" == "ubuntu" ]]; then
       # Ubuntu
-      source "$DOTFILES_DIR/shell/zsh/os/ubuntu.zsh"
+      if [ -f "$DOTFILES_DIR/shell/zsh/rc.d/os/10_ubuntu.zsh" ]; then
+        source "$DOTFILES_DIR/shell/zsh/rc.d/os/10_ubuntu.zsh"
+      fi
     fi
   fi
 fi
-
-# ------------------------------------------------------------
-# 基本設定の読み込み
-# ------------------------------------------------------------
-for config_file in "$DOTFILES_DIR/shell/zsh/base"/*.zsh; do
-  source "$config_file"
-done
 
 # ------------------------------------------------------------
 # ホスト名ベースの設定の読み込み
@@ -52,11 +57,6 @@ fi
 # その他
 # ------------------------------------------------------------
 export GPG_TTY=$(tty)
-
-# ------------------------------------------------------------
-# mise
-# ------------------------------------------------------------
-eval "$($HOME/.local/bin/mise activate zsh)"
 
 # ------------------------------------------------------------
 # 起動時間の計測（ミリ秒）

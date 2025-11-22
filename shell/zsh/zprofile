@@ -1,0 +1,46 @@
+# ~/.zprofile file for zsh login shells.
+
+# dotfilesディレクトリのパスを設定
+export DOTFILES_DIR="${DOTFILES_DIR:-$HOME/Documents/dotfiles}"
+
+# ------------------------------------------------------------
+# profile.d配下の設定を数字順に読み込み
+# ------------------------------------------------------------
+for config_file in "$DOTFILES_DIR/shell/zsh/profile.d"/*.zsh; do
+  if [ -f "$config_file" ]; then
+    source "$config_file"
+  fi
+done
+
+# ------------------------------------------------------------
+# OSごとのパス設定の読み込み
+# 特にhomebrewなど、先にパスを設定しておかないときと、基本設定の解決ができない場合が多い
+# ------------------------------------------------------------
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS
+  if [ -f "$DOTFILES_DIR/shell/zsh/profile.d/os/01_macos-path.zsh" ]; then
+    source "$DOTFILES_DIR/shell/zsh/profile.d/os/01_macos-path.zsh"
+  fi
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  # Linux
+  if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    if [[ "$ID" == "ubuntu" ]]; then
+      # Ubuntu
+      if [ -f "$DOTFILES_DIR/shell/zsh/profile.d/os/01_ubuntu-path.zsh" ]; then
+        source "$DOTFILES_DIR/shell/zsh/profile.d/os/01_ubuntu-path.zsh"
+      fi
+    fi
+  fi
+fi
+
+# ------------------------------------------------------------
+# mise
+# ------------------------------------------------------------
+if [[ -o interactive ]]; then
+  # インタラクティブシェルの場合
+  eval "$(~/.local/bin/mise activate zsh)"
+else
+  # 非インタラクティブシェルの場合
+  eval "$(~/.local/bin/mise activate zsh --shims)"
+fi

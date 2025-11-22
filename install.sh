@@ -182,6 +182,13 @@ else
     step_error "zshrcのシンボリックリンク作成に失敗しました。"
 fi
 
+step_start "zprofileのシンボリックリンク作成"
+if ln -sf "$DOTFILES_DIR/shell/zsh/zprofile" ~/.zprofile; then
+    step_success
+else
+    step_error "zprofileのシンボリックリンク作成に失敗しました。"
+fi
+
 step_start "starship.tomlのシンボリックリンク作成"
 mkdir -p ~/.config
 if ln -sf "$DOTFILES_DIR/terminal/starship/starship.toml" ~/.config/starship.toml; then
@@ -191,7 +198,7 @@ else
 fi
 
 step_start "ghr設定ファイルのシンボリックリンク作成"
-mkdir -p ~/.config/ghr
+mkdir -p ~/.ghr
 if ln -sf "$DOTFILES_DIR/git/ghr/config.toml" ~/.ghr/ghr.toml; then
     step_success
 else

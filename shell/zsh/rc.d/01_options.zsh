@@ -17,10 +17,3 @@ setopt hist_ignore_all_dups
 # プロンプトの設定
 autoload -Uz promptinit
 promptinit
-
-# bashの補完を使ってみる
-autoload -Uz bashcompinit
-bashcompinit
-
-source <(ghr shell bash --completion)
-complete -C "$(which aws_completer)" aws
