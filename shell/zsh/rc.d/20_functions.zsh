@@ -68,3 +68,6 @@ function ax() {
   fi
 }
 compdef _ax-complete ax
+
+# Need to install safe-chain
+source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script

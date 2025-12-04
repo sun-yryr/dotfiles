@@ -1,4 +1,5 @@
 # ~/.zprofile file for zsh login shells.
+echo "Loading zprofile"
 
 # dotfilesディレクトリのパスを設定
 export DOTFILES_DIR="${DOTFILES_DIR:-$HOME/Documents/dotfiles}"

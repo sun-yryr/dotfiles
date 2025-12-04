@@ -1,4 +1,5 @@
 # ~/.zshrc file for zsh interactive shells.
+echo "Loading zshrc"
 
 # ------------------------------------------------------------
 # 起動時間をミリ秒単位で計測する
