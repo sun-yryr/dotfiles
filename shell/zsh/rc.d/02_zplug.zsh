@@ -1,4 +1,4 @@
-source $HOME/.zplug/init.zsh
+source ${ZPLUG_HOME:-${HOME}/.zplug}/init.zsh
 
 # ------------------------------------------------------------
 # プラグイン定義

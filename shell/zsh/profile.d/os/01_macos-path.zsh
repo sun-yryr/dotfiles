@@ -7,7 +7,9 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 # swiftly
-. ~/.swiftly/env.sh
+if [ -f "~/.swiftly/env.sh" ]; then
+    . ~/.swiftly/env.sh
+fi
 
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
