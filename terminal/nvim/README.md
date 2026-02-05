@@ -14,3 +14,4 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 - explorer などで隠しファイルをデフォルトで表示、fuzzy matching: 2580dfe5d1f0
 - explorer でignoreをグレーに、隠しファイルは通常のカラーに: a75652d9598a
 - inlay hint 一旦全出しよね: 59a51001836c
+- version-lsp: e831ab2ba33b
