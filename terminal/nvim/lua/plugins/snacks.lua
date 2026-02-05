@@ -11,12 +11,12 @@ return {
         explorer = {
           hidden = true,
           ignored = true,
-          matcher = {
-            fuzzy = true,
-          },
         },
         files = {
           hidden = true,
+          matcher = {
+            fuzzy = true,
+          },
         },
         grep = {
           hidden = true,
