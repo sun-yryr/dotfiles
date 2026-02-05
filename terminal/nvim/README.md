@@ -6,3 +6,4 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 ## 変更点
 
 - terminal をフローティング表示に変更: [snacks.lua](https://github.com/sun-yryr/dotfiles/blob/736b06b99c47e663cdacb852c745d468fa4be3ae/terminal/nvim/lua/plugins/snacks.lua)
+- explorer などで隠しファイルをデフォルトで表示、fuzzy matching: 2580dfe5d1f0
