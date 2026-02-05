@@ -1,5 +1,21 @@
 return {
   "neovim/nvim-lspconfig",
+
+  init = function()
+    if vim.lsp.config and vim.lsp.enable then
+      vim.lsp.config("version_lsp", {
+        cmd = { "version-lsp" },
+        filetypes = { "json", "jsonc", "toml", "gomod", "yaml" },
+        root_markers = { ".git" },
+        settings = {
+          ["version-lsp"] = {},
+        },
+      })
+
+      vim.lsp.enable("version_lsp")
+    end
+  end,
+
   opts = {
     servers = {
       gopls = {

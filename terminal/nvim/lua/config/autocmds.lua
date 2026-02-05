@@ -14,3 +14,21 @@ vim.api.nvim_create_autocmd("VimEnter", {
     }, { prefix = "Snacks" })
   end,
 })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client then
+      return
+    end
+    -- LSPクライアントごとのdiagnostics namespaceを取得
+    local ns = vim.lsp.diagnostic.get_namespace(client.id)
+    -- version-lsp の diagnostics だけ表示設定を変える
+    if client.name == "version_lsp" then
+      vim.diagnostic.config({
+        virtual_text = true,
+        underline = false,
+      }, ns)
+    end
+  end,
+})
