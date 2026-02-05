@@ -21,7 +21,6 @@ fi
 # あれば
 if [ -f "~/.lmstudio/bin" ]; then
   # Added by LM Studio CLI (lms)
-  export PATH="$PATH:/Users/taiyo_minagawa_yume/.lmstudio/bin"
+  export PATH="$PATH:$HOME/.lmstudio/bin"
   # End of LM Studio CLI section
 fi
-
