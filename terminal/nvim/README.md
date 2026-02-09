@@ -15,3 +15,4 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 - explorer の色調整。ignoreだけグレーにする: [commit](https://github.com/sun-yryr/dotfiles/commit/a75652d9598a8fd42b860ab67b19df2172dc3ec5)
 - inlay hint を一旦全出しする: [commit](https://github.com/sun-yryr/dotfiles/commit/59a51001836c25e90b8b46b04e872b50f7508998)
 - version-lsp を追加: [commit](https://github.com/sun-yryr/dotfiles/commit/e831ab2ba33bb381c17d88acdf56dc28951c94ea)
+- markdownのプレビュー: [commit](https://github.com/sun-yryr/dotfiles/commit/fecf4819f176ae781d9644efe1c71d0c3654740c)
