@@ -7,19 +7,19 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 # swiftly
-if [ -f "~/.swiftly/env.sh" ]; then
-    . ~/.swiftly/env.sh
+if [ -f "$HOME/.swiftly/env.sh" ]; then
+    . "$HOME/.swiftly/env.sh"
 fi
 
 # あれば
-if [ -f "~/.orbstack/shell/init.zsh" ]; then
+if [ -f "$HOME/.orbstack/shell/init.zsh" ]; then
   # Added by OrbStack: command-line tools and integration
   # This won't be added again if you remove it.
-  source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+  source "$HOME/.orbstack/shell/init.zsh" 2>/dev/null || :
 fi
 
 # あれば
-if [ -f "~/.lmstudio/bin" ]; then
+if [ -f "$HOME/.lmstudio/bin" ]; then
   # Added by LM Studio CLI (lms)
   export PATH="$PATH:$HOME/.lmstudio/bin"
   # End of LM Studio CLI section
