@@ -12,7 +12,19 @@ return {
         },
       })
 
-      vim.lsp.enable("version_lsp")
+      vim.lsp.config("sourcekit", {
+        cmd = { "sourcekit-lsp" },
+        filetypes = { "swift" },
+        root_markers = { ".git", "Package.swift" },
+        settings = {
+          ["sourcekit"] = {},
+        },
+      })
+
+      vim.lsp.enable({
+        "version_lsp",
+        "sourcekit",
+      })
     end
   end,
 
