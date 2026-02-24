@@ -16,3 +16,5 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 - inlay hint を一旦全出しする: [commit](https://github.com/sun-yryr/dotfiles/commit/59a51001836c25e90b8b46b04e872b50f7508998)
 - version-lsp を追加: [commit](https://github.com/sun-yryr/dotfiles/commit/e831ab2ba33bb381c17d88acdf56dc28951c94ea)
 - markdownのプレビュー: [commit](https://github.com/sun-yryr/dotfiles/commit/fecf4819f176ae781d9644efe1c71d0c3654740c)
+- swift sourcekit-lsp 統合: [commit](https://github.com/sun-yryr/dotfiles/commit/a4f9b9f273bf7ee44467bc0ca530b8138a652c17)
+- swiftlint: [commit](https://github.com/sun-yryr/dotfiles/commit/7ce921fa06b61edc16f0a6d639dff7246859d314)
